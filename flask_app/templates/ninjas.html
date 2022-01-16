@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Create Ninja</title>
+</head>
+<body>
+    <header>
+        <nav>
+            {% block menu %} {% include 'menu.html' %} {% endblock menu %}
+        </nav>
+    </header>
+    <main>
+        <div>
+            <h1>Create Ninja</h1>
+            <form action="/ninja/new" method="POST">
+                <div>
+                    <label for="dojo_id">Dojo:</label>
+                    <select name="dojo_id">
+                        {% for dojo in dojos %}
+                        <option value={{dojo.id}}>{{dojo.name}}</option>>
+                        {% endfor %}
+                    </select>
+                </div>
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name">
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name">
+                <label for="age">Age:</label>
+                <input type="number" name="age">
+                <input type="submit" name="Create Ninja">
+            </form>
+        </div>
+        <div>
+            <h1>All Ninjas</h1>
+            {% for ninja in ninjas %}
+            <p>{{ninja.first_name}} {{ninja.last_name}} {{ninja.age}}</p>
+            {% endfor %}
+        </div>
+        <div>
+            <button><a href="/ninja/new">Create Ninja</a></button>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+</body>
+</html>
