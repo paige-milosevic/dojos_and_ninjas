@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Create Ninja</title>
 </head>
 <body>
@@ -14,34 +18,32 @@
         </nav>
     </header>
     <main>
-        <div>
-            <h1>Create Ninja</h1>
-            <form action="/ninja/new" method="POST">
-                <div>
+        <div class="container">
+            <form action="/ninja/new" method="POST" class="col-4 bg-dark p-4 my-5 mx-auto text-light">
+                <h2 class="text-center">Create Ninja</h1>
+                <div class="form-group">
                     <label for="dojo_id">Dojo:</label>
-                    <select name="dojo_id">
+                    <select name="dojo_id" class="form-control">
                         {% for dojo in dojos %}
                         <option value={{dojo.id}}>{{dojo.name}}</option>>
                         {% endfor %}
                     </select>
                 </div>
-                <label for="first_name">First Name:</label>
-                <input type="text" name="first_name">
-                <label for="last_name">Last Name:</label>
-                <input type="text" name="last_name">
-                <label for="age">Age:</label>
-                <input type="number" name="age">
-                <input type="submit" name="Create Ninja">
+                <div class="form-group">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" name="age" class="form-control">
+                </div class="form-group">
+                    <input type="submit" name="Create Ninja">
+                </div>
             </form>
-        </div>
-        <div>
-            <h1>All Ninjas</h1>
-            {% for ninja in ninjas %}
-            <p>{{ninja.first_name}} {{ninja.last_name}} {{ninja.age}}</p>
-            {% endfor %}
-        </div>
-        <div>
-            <button><a href="/ninja/new">Create Ninja</a></button>
         </div>
     </main>
     <footer>

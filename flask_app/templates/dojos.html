@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Dojos</title>
 </head>
 <body>
@@ -14,23 +18,28 @@
         </nav>
     </header>
     <main>
-        <div>
-            <h1>Dojos</h1>
-            {% for dojo in dojos %}
-            <p><a href="/dojo/{{dojo.id}}">{{dojo.name}}</a></p>
-            {% endfor %}
-        </div>
-        <div>
-            <h1>Create Dojo</h1>
-            <form action="/dojo/create" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" name="name">
-                <input type="submit" name="Create Dojo">
-            </form>
-        </div>
-        <div>
-            <button><a href="/ninjas">Create Ninja</a></button>
-            <button><a href="/dojos">See Dojos</a></button>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm bg-dark p-4 my-5 mx-auto text-light">
+                    <h1>Dojos</h1>
+                    {% for dojo in dojos %}
+                    <p><a href="/dojo/{{dojo.id}}">{{dojo.name}}</a></p>
+                    {% endfor %}
+                    <div>
+                        <button><a href="/ninjas">Create Ninja</a></button>
+                    </div>
+                </div>
+                <div class="col-sm bg-dark p-4 my-5 mx-auto text-light">
+                    <form action="/dojo/create" method="POST">
+                        <h1>Create Dojo</h1>
+                        <div>
+                            <label for="name">Name:</label>
+                            <input type="text" name="name">
+                        </div>
+                        <input type="submit" name="Create Dojo">
+                    </form>
+                </div>
+            </div>
         </div>
     </main>
     <footer>

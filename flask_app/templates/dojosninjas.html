@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Dojos</title>
 </head>
 <body>
@@ -13,23 +17,28 @@
             {% block menu %} {% include 'menu.html' %} {% endblock menu %}
         </nav>
     </header>
-    <main>
-        <table>
+    <main class="card-body">
+        <h2 class="card-title">{{dojo.name}} Ninjas</h2>
+        <table class="table table-info">
             <thead>
-                <th>First Name:</th>
-                <th>Last Name:</th>
-                <th>Age:</th>
+                <tr>
+                    <th>First Name:</th>
+                    <th>Last Name:</th>
+                    <th>Age:</th>
+                </tr>
             </thead>
             <tbody>
             {% for ninja in dojo.ninjas %}
-                <td>{{ninja.first_name}}</td>
-                <td>{{ninja.last_name}}</td>
-                <td>{{ninja.age}}</td>
+                <tr>
+                    <td>{{ninja.first_name}}</td>
+                    <td>{{ninja.last_name}}</td>
+                    <td>{{ninja.age}}</td>
+                </tr>
             {% endfor %}
             </tbody>
         </table>
         <div>
-            <button><a href="/ninja/create">Create Ninja</a></button>
+            <button><a href="/ninjas">Create Ninja</a></button>
         </div>
     </main>
     <footer>
