@@ -23,7 +23,7 @@
                 <div class="col-sm bg-dark p-4 my-5 mx-auto text-light">
                     <h1>Dojos</h1>
                     {% for dojo in dojos %}
-                    <p><a href="/dojo/{{dojo.id}}">{{dojo.name}}</a></p>
+                    <p><a href="/dojo/{{dojo.id}}" class="text-primary">{{dojo.name}}</a></p>
                     {% endfor %}
                     <div>
                         <button><a href="/ninjas">Create Ninja</a></button>
